@@ -1,3 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block navbar %}
+    <nav class="navbar navbar-light bg-light" id="navbar" style="border-radius: 20px;">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'img/poko_logo.png' %}" width="70" height="39" class="d-inline-block align-top" alt="logo">
+            Pokemon Api
+        </a>
+       {% if user.is_authenticated %}
+       <a href="#" style="text-decoration: none; font-size: 18px;">{{ request.user }}</a>
+       <div class="auth" style="margin-right: 50px;">
+        <a href="{% url 'profile' request_user%}" style="text-decoration: none; color: brown;">
+            My Profile</a>
+          <a href="{% url 'logout' %}" style="text-decoration: none; margin-left: 20px; color: brown;">
+            Log Out</a>
+        </div>
+        {% else %}
+        <div class="no-auth" style="margin-right: 50px;">
+        <a href="{% url 'signup' %}" style="text-decoration: none; color: brown;">Sign Up</a>
+        <a href="{% url 'login' %}" style="text-decoration: none; margin-left: 20px; color: brown;">Log In</a>
+      </div>
+       {% endif %}
+    </nav>
+    {% endblock navbar %}
