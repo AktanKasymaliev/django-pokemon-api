@@ -14,9 +14,8 @@ def handle_error(func):
     def wrapper(obj, *args, **kwargs):
         try:
             return func(obj, *args, **kwargs)
-        except Exception as e:
-            print(e)
-            return render(*args, "errors/error.html")
+        except Exception:
+            return render(*args, "errors/error.html", status=404)
     return wrapper
 
 def get_user(func):
