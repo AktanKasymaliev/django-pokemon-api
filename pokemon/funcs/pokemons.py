@@ -22,4 +22,3 @@ def get_pokemon(pokemon_name: str) -> dict:
         "base_experince": base_experience
                 }
     return context
-

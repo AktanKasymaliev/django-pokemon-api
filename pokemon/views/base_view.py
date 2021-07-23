@@ -1,9 +1,8 @@
-from django.contrib import messages
 from django.views import generic
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 
-from pokemon.funcs.decorators import handle_error
+from pokemon.funcs.decorators import get_user, handle_error, validating_db
 from pokemon.models import Pokemon
 from pokemon.funcs.pokemons import get_pokemon
 
@@ -35,17 +34,18 @@ class MyProfileView(generic.View):
         else:
             pokemon.delete(), self.__save_pokemon_to_db(user, pokemon_name)
 
+    @get_user
+    @validating_db
     @handle_error
     def get(self, request, user):
-        auth_user = User.objects.get(id=user)
-        pokemon = self.__get_pokemon_from_db(user)
+        pokemon = self.__get_pokemon_from_db(self.auth_user)
         if request.GET.get("pokemon"):
             context = get_pokemon(request.GET.get("pokemon"))
-            self.__check_delete_pokemon_and_save(pokemon, auth_user, context["name"])
+            self.__check_delete_pokemon_and_save(pokemon, self.auth_user, context["name"])
             return render(
                     request, 
                     "pokemon/profile.html",
-                    {"user": auth_user,
+                    {"user": self.auth_user,
                     "pokemon": pokemon,
                     **context}
                     )
@@ -56,4 +56,3 @@ class MyProfileView(generic.View):
             "pokemon": pokemon}
             )
 
-#TODO Сделать Удаление с БД Покемона если тот уже существует
