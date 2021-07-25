@@ -3,7 +3,7 @@
 Привет, первым делом вам нужно скопировать репозиторий.
 * Скопировать репозиторий:
 ```
-git clone https://github.com/AktanKasymaliev/online_store.git
+https://github.com/AktanKasymaliev/django-pokemon-api.git
 ```
 * Установить все зависимости: 
 ```
