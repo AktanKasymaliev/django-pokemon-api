@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.urls import reverse
-from django.db.utils import IntegrityError
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 
