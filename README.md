@@ -27,6 +27,6 @@ pip install -r requirements.txt
 - docker-compose up --build  
 - Для миграций: docker-compose run dock_web python3 manage.py migrate
 - Для создания суперпользователя: docker-compose run dock_web python3 manage.py createsuperuser
-*переходи по 127.0.0.1:8000*
+*переходи по http://127.0.0.1:8000 *
 ```
 
