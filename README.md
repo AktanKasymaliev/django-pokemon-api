@@ -1,15 +1,15 @@
 # django-pokemon-api
 
-Привет, первым делом вам нужно скопировать репозиторий.
-* Скопировать репозиторий:
+Hello first step is cloning rep:
+* Clone repos:
 ```
 https://github.com/AktanKasymaliev/django-pokemon-api.git
 ```
-* Установить все зависимости: 
+* Install all requirements: 
 ```
 pip install -r requirements.txt
 ```
-* Синхронизируйте django с базой данных
+* Sync database
 ```
 - python manage.py makemigrations
 - python manage.py migrate
@@ -19,14 +19,14 @@ pip install -r requirements.txt
 ```
 - python manage.py createsuperuser
 ```
-* Наконец запустите сервер: `python3 manage.py runserver`
+* Last one is run: `python3 manage.py runserver`
 
 
-*Для docker-compose
+* For docker users:
 ```
 - docker-compose up --build  
-- Для миграций: docker-compose run dock_web python3 manage.py migrate
-- Для создания суперпользователя: docker-compose run dock_web python3 manage.py createsuperuser
-*переходи по http://127.0.0.1:8000 *
+- Migrations: docker-compose run dock_web python3 manage.py migrate
+- Create superuser: docker-compose run dock_web python3 manage.py createsuperuser
+* redirect to http://127.0.0.1:8000 *
 ```
 
